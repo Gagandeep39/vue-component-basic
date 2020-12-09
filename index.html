@@ -20,8 +20,10 @@
       <ul>
         <li v-for="(friend, index) in friends" :key="index">
           <h2>{{ friend.name }}</h2>
-          <button>Show Details</button>
-          <ul>
+          <button @click="toggleDetails">
+            {{ detailsAreVisible ? 'Hide Details': 'Show Details' }}
+          </button>
+          <ul v-if="detailsAreVisible">
             <li><strong>Phone:</strong> {{ friend.phone }}</li>
             <li><strong>Email:</strong> {{ friend.email }}</li>
           </ul>
